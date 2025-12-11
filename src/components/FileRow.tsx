@@ -1,19 +1,18 @@
 import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FileIcon from "./FileIcon";
+import { FileItem } from "@/types/files";
 
 interface FileRowProps {
-  name: string;
-  size: string;
-  url: string;
+  file: FileItem;
   index: number;
 }
 
-const FileRow = ({ name, size, url, index }: FileRowProps) => {
+const FileRow = ({ file, index }: FileRowProps) => {
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = url;
-    link.download = name;
+    link.href = file.url;
+    link.download = file.name;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -26,11 +25,11 @@ const FileRow = ({ name, size, url, index }: FileRowProps) => {
     >
       <div className="flex items-center gap-4 min-w-0 flex-1">
         <div className="flex-shrink-0 p-2 rounded-lg bg-secondary/50">
-          <FileIcon filename={name} className="h-5 w-5" />
+          <FileIcon filename={file.name} className="h-5 w-5" />
         </div>
         <div className="min-w-0 flex-1">
-          <p className="font-medium text-foreground truncate">{name}</p>
-          <p className="text-sm text-muted-foreground">{size}</p>
+          <p className="font-medium text-foreground truncate">{file.name}</p>
+          <p className="text-sm text-muted-foreground">{file.size}</p>
         </div>
       </div>
       <Button 
