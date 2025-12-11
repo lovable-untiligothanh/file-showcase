@@ -4,4 +4,23 @@
 
 import type { FileSystemItem } from '@/types/files';
 
-export const fileSystem: FileSystemItem[] = [];
+export const fileSystem: FileSystemItem[] = [
+  {
+    "type": "file",
+    "name": ".gitkeep",
+    "size": "60 B",
+    "url": "/files/.gitkeep"
+  },
+  {
+    "type": "file",
+    "name": "123.txt",
+    "size": "3 B",
+    "url": "/files/123.txt"
+  },
+  {
+    "type": "file",
+    "name": "favicon.ico",
+    "size": "19.9 KB",
+    "url": "/files/favicon.ico"
+  }
+];
