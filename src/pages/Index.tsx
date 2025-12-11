@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Folder, HardDrive } from "lucide-react";
 import FileList from "@/components/FileList";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { fileSystem } from "@/data/fileSystem";
+import { fileSystem } from "@/data/fileSystem.generated";
 import { FolderItem, FileSystemItem } from "@/types/files";
 
 const Index = () => {
@@ -76,7 +76,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border mt-auto">
         <div className="container max-w-4xl mx-auto px-4 py-6 text-center text-sm text-muted-foreground">
-          <p>Update fileSystem.ts to customize the folder structure</p>
+          <p>Add files to public/files/ folder — auto-scanned during build</p>
         </div>
       </footer>
     </div>
