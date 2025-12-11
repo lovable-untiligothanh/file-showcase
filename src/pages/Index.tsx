@@ -1,12 +1,38 @@
-import { useState } from "react";
+import { useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Folder, HardDrive } from "lucide-react";
 import FileList from "@/components/FileList";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { fileSystem } from "@/data/fileSystem.generated";
 import { FolderItem, FileSystemItem } from "@/types/files";
 
+// Helper to find folder by path segments
+const findFolderPath = (items: FileSystemItem[], pathSegments: string[]): FolderItem[] => {
+  const result: FolderItem[] = [];
+  let currentItems = items;
+
+  for (const segment of pathSegments) {
+    const folder = currentItems.find(
+      (item): item is FolderItem => item.type === 'folder' && item.name === segment
+    );
+    if (!folder) break;
+    result.push(folder);
+    currentItems = folder.children;
+  }
+
+  return result;
+};
+
 const Index = () => {
-  const [path, setPath] = useState<FolderItem[]>([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  
+  // Derive path from URL
+  const path = useMemo(() => {
+    const pathParam = searchParams.get('path');
+    if (!pathParam) return [];
+    const segments = pathParam.split('/').filter(Boolean);
+    return findFolderPath(fileSystem, segments);
+  }, [searchParams]);
   
   // Get current items based on path
   const getCurrentItems = (): FileSystemItem[] => {
@@ -15,14 +41,18 @@ const Index = () => {
   };
 
   const handleOpenFolder = (folder: FolderItem) => {
-    setPath([...path, folder]);
+    const newPath = [...path, folder];
+    const pathString = newPath.map(f => f.name).join('/');
+    setSearchParams({ path: pathString });
   };
 
   const handleNavigate = (index: number) => {
     if (index === -1) {
-      setPath([]);
+      setSearchParams({});
     } else {
-      setPath(path.slice(0, index + 1));
+      const newPath = path.slice(0, index + 1);
+      const pathString = newPath.map(f => f.name).join('/');
+      setSearchParams({ path: pathString });
     }
   };
 
