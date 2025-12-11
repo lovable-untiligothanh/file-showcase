@@ -6,6 +6,18 @@ import type { FileSystemItem } from '@/types/files';
 
 export const fileSystem: FileSystemItem[] = [
   {
+    "type": "folder",
+    "name": "ptit",
+    "children": [
+      {
+        "type": "file",
+        "name": "ptit.txt",
+        "size": "4 B",
+        "url": "/files/ptit/ptit.txt"
+      }
+    ]
+  },
+  {
     "type": "file",
     "name": ".gitkeep",
     "size": "60 B",
