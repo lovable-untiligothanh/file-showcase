@@ -57,6 +57,21 @@ npm run preview
 2. File system scanner automatically detects changes in development
 3. Restart dev server or rebuild to update the file listing
 
+### File Handling and Viewing
+**Current Implementation**: Files are downloadable only via the Download button in `FileRow.tsx`
+
+**Browser-Viewable Files**: Files that can be viewed directly in browsers include:
+- **Images**: jpg, jpeg, png, gif, svg, webp
+- **Documents**: pdf, txt, md (as plain text)
+- **Web files**: html, css, js, json
+- **Media**: mp4, webm, mp3, wav, ogg (with browser codec support)
+
+**Implementation Notes**:
+- File URLs are generated as `/files/{path}` and served statically by Vite
+- To add viewing functionality, modify `FileRow.tsx` to detect viewable file types and add a "View" button alongside "Download"
+- Viewable files can open in new tab via `window.open(file.url)` or in-app modal/viewer component
+- File type detection logic is already implemented in `FileIcon.tsx`
+
 ### Component Development
 - UI components use shadcn-ui library with Tailwind CSS
 - All components should be responsive and follow the existing design system

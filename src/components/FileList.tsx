@@ -6,9 +6,10 @@ import { FileSystemItem, FolderItem, FileItem } from "@/types/files";
 interface FileListProps {
   items: FileSystemItem[];
   onOpenFolder: (folder: FolderItem) => void;
+  onViewFile?: (file: FileItem) => void;
 }
 
-const FileList = ({ items, onOpenFolder }: FileListProps) => {
+const FileList = ({ items, onOpenFolder, onViewFile }: FileListProps) => {
   if (items.length === 0) {
     return (
       <div className="text-center py-16">
@@ -41,10 +42,11 @@ const FileList = ({ items, onOpenFolder }: FileListProps) => {
             index={index}
           />
         ) : (
-          <FileRow 
-            key={item.name} 
+          <FileRow
+            key={item.name}
             file={item as FileItem}
             index={index}
+            onView={onViewFile}
           />
         )
       ))}

@@ -1,10 +1,11 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Folder, HardDrive } from "lucide-react";
 import FileList from "@/components/FileList";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import FileViewer from "@/components/FileViewer";
 import { fileSystem } from "@/data/fileSystem.generated";
-import { FolderItem, FileSystemItem } from "@/types/files";
+import { FolderItem, FileSystemItem, FileItem } from "@/types/files";
 
 // Helper to find folder by path segments
 const findFolderPath = (items: FileSystemItem[], pathSegments: string[]): FolderItem[] => {
@@ -25,6 +26,7 @@ const findFolderPath = (items: FileSystemItem[], pathSegments: string[]): Folder
 
 const Index = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [viewingFile, setViewingFile] = useState<FileItem | null>(null);
   
   // Derive path from URL
   const path = useMemo(() => {
@@ -54,6 +56,14 @@ const Index = () => {
       const pathString = newPath.map(f => f.name).join('/');
       setSearchParams({ path: pathString });
     }
+  };
+
+  const handleViewFile = (file: FileItem) => {
+    setViewingFile(file);
+  };
+
+  const handleCloseViewer = () => {
+    setViewingFile(null);
   };
 
   const currentItems = getCurrentItems();
@@ -100,8 +110,19 @@ const Index = () => {
         </div>
 
         {/* File List */}
-        <FileList items={currentItems} onOpenFolder={handleOpenFolder} />
+        <FileList
+          items={currentItems}
+          onOpenFolder={handleOpenFolder}
+          onViewFile={handleViewFile}
+        />
       </main>
+
+      {/* File Viewer Modal */}
+      <FileViewer
+        file={viewingFile}
+        isOpen={!!viewingFile}
+        onClose={handleCloseViewer}
+      />
 
       {/* Footer */}
       <footer className="border-t border-border mt-auto">

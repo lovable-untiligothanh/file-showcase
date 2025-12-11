@@ -7,27 +7,51 @@ import type { FileSystemItem } from '@/types/files';
 export const fileSystem: FileSystemItem[] = [
   {
     "type": "folder",
-    "name": "ptit",
+    "name": "ky1",
     "children": [
       {
-        "type": "file",
-        "name": "ptit.txt",
-        "size": "4 B",
-        "url": "/files/ptit/ptit.txt"
+        "type": "folder",
+        "name": "share",
+        "children": [
+          {
+            "type": "file",
+            "name": "Câu hỏi ôn tập trắc nghiệm môn Triết - Từ xa.docx",
+            "size": "57.2 KB",
+            "url": "/files/ky1/share/Câu hỏi ôn tập trắc nghiệm môn Triết - Từ xa.docx"
+          },
+          {
+            "type": "file",
+            "name": "Câu hỏi trắc nghiệm Giải tích 1.docx",
+            "size": "1.1 MB",
+            "url": "/files/ky1/share/Câu hỏi trắc nghiệm Giải tích 1.docx"
+          },
+          {
+            "type": "file",
+            "name": "Câu hỏi trắc nghiệm ôn tập-Đại số-HPDung.pdf",
+            "size": "908.7 KB",
+            "url": "/files/ky1/share/Câu hỏi trắc nghiệm ôn tập-Đại số-HPDung.pdf"
+          },
+          {
+            "type": "file",
+            "name": "Câu hỏi trắc nghiệm TCC1-TVAnh.pdf",
+            "size": "137.6 KB",
+            "url": "/files/ky1/share/Câu hỏi trắc nghiệm TCC1-TVAnh.pdf"
+          },
+          {
+            "type": "file",
+            "name": "Đề mẫu và đáp án-Đề minh họa thi kết thúc học phần môn giải tích 1.pdf",
+            "size": "200.9 KB",
+            "url": "/files/ky1/share/Đề mẫu và đáp án-Đề minh họa thi kết thúc học phần môn giải tích 1.pdf"
+          }
+        ]
       }
     ]
   },
   {
     "type": "file",
     "name": ".gitkeep",
-    "size": "60 B",
+    "size": "61 B",
     "url": "/files/.gitkeep"
-  },
-  {
-    "type": "file",
-    "name": "123.txt",
-    "size": "3 B",
-    "url": "/files/123.txt"
   },
   {
     "type": "file",
