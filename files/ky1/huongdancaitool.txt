@@ -1,0 +1,11 @@
+Cài tampermonkey
+Mở chế độ Developer mode  của extensions
+Cấu hình script  có trong link này : https://drive.google.com/file/d/1dOMCWiNOMVgfzgRyj9OiQarpH8jjYCVC/view
+Vào cài đặt tiện ích, mở hết mấy cái này
+
+Thoát trình duyệt và mở lại, vào 1 website bất kỳ
+Thấy có màu đỏ, không cần là số 6 thì là được rồi, số 1 cũng được, chỉ cần hiển thị số có viền đỏ như này
+
+
+
+https://docs.google.com/document/d/17E_0LV875REQ_MlKbydU9o0fu4kJYzTGBsPSzh0VRCc/edit?tab=t.0
