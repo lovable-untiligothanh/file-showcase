@@ -1,0 +1,10 @@
+1. Mở máy tính, vào ứng dụng ptit client và đăng nhập sau đó vào bài thi code.
+2. Sử dụng điện thoại chụp lại các bài tập. Chụp nét một chút
+3. Dùng ĐT gửi các ảnh bài tập đó vào zalo, telegram...etc..
+4. Thực hiện khởi động lại máy tính.
+5. Đăng nhập zalo, telegram trên máy tính sau đó tải các ảnh bài tập từ điện thoại về máy tính.
+6. Sử dụng Chatgpt gemini để giải đẩy đủ bài tập, nhớ bảo nó giả 2 3 lần mỗi bài cho chắc cú.
+6. Tạo folder và copy các bài tập đã giải vào folder đó, tạo thêm sub folder, mỗi bài tập là 1 subfolder
+7. Mở ứng dụng ptit client và đăng nhập sau đó vào bài thi code.
+8. Vào từng bài tập sau đó thực hiện nộp bài tập đã giải vào ptit client, nhớ nộp đúng bài tập đã giải.
+9. Hãy nộp sai 4 5 6 lần trước khi nộp đúng bài tập đã giải, để tránh bị phát hiện. Có thể dùng bài giải của bài khác để nộp cho bị WA
